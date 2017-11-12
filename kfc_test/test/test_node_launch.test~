@@ -1,0 +1,15 @@
+<launch>
+
+	
+	<node name="stopSignal" pkg="ucandoit" type="ucandoit_node"/>
+	<node name="task3_stopper" pkg="stopafterdistance" type="stopafterdistance_node"/>
+	<node name="directionController" pkg="directioncontroller" type="directioncontroller_node"/>
+	<node name="speedController" pkg="speedcontroller" type="speedcontroller_node">
+		<!--remap from="/catvehicle/cmd_vel" to="/catvehicle/cmd_vel_task4"/-->
+	</node>
+	<node name="object_detector" pkg="cvchallenge_task2_jms" type="cvchallenge_task2_jms_odomframe_node"/>
+	<include file="$(find cvchallenge_task3)/launch/kfcWorld.launch"/>
+	
+	<test test-name="kfc_test" pkg="kfc_test" type="kfc_test" time-limit="120.0" />
+</launch>
+

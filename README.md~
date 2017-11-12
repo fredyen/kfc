@@ -1,0 +1,47 @@
+# About
+This is **Alpha Release** for KFC Automous Car project.
+
+# catkin workspace and build
+In order to use the catvehicle ROS package, you should work within a catkin workspace. If you do not already have one:
+```
+cd ~
+mkdir -p catvehicle_ws/src
+cd catvehicle_ws/src
+catkin_init_workspace
+cd ..
+catkin_make
+```
+At this point, you can clone this Alpha Release to your src directory
+```
+cd catvehicle_ws/src
+git clone https://git.engr.arizona.edu/ece473-573-2017S/kfc.git
+cd..
+catkin_make
+```
+# How to run Alpha Release
+Notice there is a alpha.launch file in catvehicle_ws/src/kfc/catvehicle/launch directory. You need to run this launch file to start Alpha Release, here is the command:
+```
+cd catvehicle/src
+source devel/setup.bash
+roslaunch catvehicle alpha.launch
+```
+At this point, Alpha Release is running, if you want to start the gui to watch how the car is working, open a new terminal and do the following commands:
+```
+cd catvehicle/src
+source devel/setup.bash
+gzclient
+```
+And if you want to see how the car detect objects and produce objects' location, open a new termianl and do the following commands:
+```
+cd catvehicle/src
+source devel/setup.bash
+rosrun rviz rviz
+```
+
+# Expected Result for this release
+In this release, we bascially want to make car circumvent objects in fornt of it. Specificlly, when the car detects a ojbect in 10 feet distance, it starts to turn left. It will not stop turning left until there is no ojbect within 10 feet range. In the meantime, the car can produce rought lcoations for all objects it detects.
+
+# Author
+* Frederick Yen (fyen@email.arizona.edu)
+* Keeley Criswell (KCRISWELL@email.arizona.edu)
+* Ju Pan (pjokk722@email.arizona.edu) 
